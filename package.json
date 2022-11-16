@@ -1,0 +1,19 @@
+{
+  "name": "lyrics_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "genius-lyrics-api": "^3.2.0",
+    "nodemon": "^2.0.20",
+    "request-promise": "^4.2.6"
+  }
+}
