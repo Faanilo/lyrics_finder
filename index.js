@@ -11,3 +11,4 @@ getLyrics(options).then((lyrics) => console.log(lyrics));
 getSong(options).then((song) => {
   console.log(`${song.lyrics}`);
 });
+
