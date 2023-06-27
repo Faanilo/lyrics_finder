@@ -6,8 +6,8 @@ const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 
 program
-  .command("lyrics <title> <artist>")
-  .alias('l')
+  .command("--lyrics <title> <artist>")
+  .alias('-l')
   .description("Get specified lyrics")
   .action((title, artist) => {
     const options = {
@@ -25,8 +25,8 @@ program
   });
 
 program
-  .command("song <title>")
-  .alias('s')
+  .command("--song <title>")
+  .alias('-s')
   .description("Search for a song")
   .action((title, artist) => {
     const options = {
@@ -52,8 +52,8 @@ program
 program.addHelpCommand();
 
 program
-  .command("menu")
-  .alias('m')
+  .command("--menu")
+  .alias('-m')
   .description("Show the menu")
   .action(() => {
     const rl = readline.createInterface({
