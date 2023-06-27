@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const readline = require("readline");
 const { program } = require("commander");
 const getLyrics = require("./library/getLyrics");
@@ -6,6 +7,7 @@ const getSong = require("./library/getSong");
 
 program
   .command("lyrics <title> <artist>")
+  .alias('l')
   .description("Get specified lyrics")
   .action((title, artist) => {
     const options = {
@@ -24,13 +26,14 @@ program
 
 program
   .command("song <title>")
+  .alias('s')
   .description("Search for a song")
   .action((title, artist) => {
     const options = {
       apiKey:
         "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E",
       title,
-      artist: artist || "", // Set empty string as the default value if "artist" is not provided
+      artist: artist || "", 
       optimizeQuery: true,
     };
 
@@ -50,6 +53,7 @@ program.addHelpCommand();
 
 program
   .command("menu")
+  .alias('m')
   .description("Show the menu")
   .action(() => {
     const rl = readline.createInterface({
