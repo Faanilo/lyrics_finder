@@ -70,9 +70,11 @@ program
     console.log("\nWelcome to Lyrics-Finder");
     console.log("-------------------------------");
     console.log("Menu:");
-    console.log("1. Search for specific lyrics");
-    console.log("2. Search for a song");
-    console.log("3. Exit");
+    console.table([
+      { Option: "1", Description: "Search for specific lyrics" },
+      { Option: "2", Description: "Search for a song" },
+      { Option: "3", Description: "Exit" },
+    ]);
     console.log("-------------------------------");
 
     rl.question("Enter your choice: ", (choice) => {
