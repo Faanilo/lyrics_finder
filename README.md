@@ -3,11 +3,13 @@
 A command line interface for [genius.com](https://genius.com/).
 <img width="800" src="./home.png">
 
+## Installation
+'npm i finderrr' 
 
 ```
 
 USAGE:
-    finderr [OPTIONS] [--] [keywords]
+    finderrr [OPTIONS] [--] [keywords]
 
 ARGS:
     <keywords>    The song's title or artist

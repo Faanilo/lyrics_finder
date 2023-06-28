@@ -1,11 +1,14 @@
 {
   "name": "finderrr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
     "finderrr": "./index.js"
   },
+  "files": [
+    ".env"
+  ],
   "scripts": {
     "start": "node index.js"
   },
