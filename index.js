@@ -2,58 +2,64 @@
 
 const readline = require("readline");
 const { program } = require("commander");
+const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 
+// Load environment variables from .env file
+dotenv.config();
+
+const apiKey = process.env.API_KEY;
+
 program
   .command("lyrics <title> <artist>")
-  .alias('l')
+  .alias("l")
   .description("Get specified lyrics")
   .action((title, artist) => {
     const options = {
-      apiKey:
-        "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E",
+      apiKey,
       title,
       artist,
       optimize: true,
     };
 
     getLyrics(options).then((lyrics) => {
-      console.log("Lyrics:");
+      console.log("\nLyrics:");
       console.log(lyrics);
     });
   });
 
 program
   .command("song <title>")
-  .alias('s')
+  .alias("s")
   .description("Search for a song")
   .action((title, artist) => {
     const options = {
-      apiKey:
-        "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E",
+      apiKey,
       title,
-      artist: artist || "", 
+      artist: artist || "",
       optimizeQuery: true,
     };
 
-    getSong(options).then((song) => {
-      if (song) {
-        console.log("Song Lyrics:");
-        console.log(song.lyrics);
-      } else {
-        console.log("No song found.");
-      }
-    }).catch((error) => {
-      console.error("An error occurred:", error);
-    });
+    getSong(options)
+      .then((song) => {
+        if (song) {
+          console.log("\nSong Lyrics:");
+          console.log(song.lyrics);
+        } else {
+          console.log("No song found.");
+        }
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
   });
 
 program.addHelpCommand();
 
 program
   .command("menu")
-  .alias('m')
+  .alias("m")
   .description("Show the menu")
   .action(() => {
     const rl = readline.createInterface({
@@ -61,10 +67,13 @@ program
       output: process.stdout,
     });
 
-    console.log("Welcome to the Command Line Tool menu!");
-    console.log("1. Search for a specific lyrics");
+    console.log("\nWelcome to Lyrics-Finder");
+    console.log("-------------------------------");
+    console.log("Menu:");
+    console.log("1. Search for specific lyrics");
     console.log("2. Search for a song");
     console.log("3. Exit");
+    console.log("-------------------------------");
 
     rl.question("Enter your choice: ", (choice) => {
       switch (choice) {
