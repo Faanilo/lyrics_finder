@@ -7,7 +7,7 @@ const getSong = require("./library/getSong");
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
-const version = "1.0.1"; 
+const version = "1.0"; 
 
 program
   .command("lyrics <title> <artist>")
