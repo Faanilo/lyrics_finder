@@ -18,5 +18,6 @@ OPTIONS:
     l, lyrics [<value>...]       specific song
     s, song [<value>...]         search for song
     m,  menu                     to see menu
+    v, version                   to see version of tools
     -h, --help                   Print help information
 ```
