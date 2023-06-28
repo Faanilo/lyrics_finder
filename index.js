@@ -130,10 +130,10 @@ if (process.argv.length === 2) {
   console.log("Lyrics-Finder Command Line Tool");
   console.log("-------------------------------");
   console.log("Usage:");
-  console.log("  finderrr | l <title> <artist>   Get specified lyrics");
-  console.log("  finderrr | s <title>              Search for a song");
-  console.log("  finderrr | m                     Show the menu");
-  console.log("  finderrr | v                     Show the version");
+  console.log("  lyrics   | l <title> <artist>   Get specified lyrics");
+  console.log("  song     | s <title>              Search for a song");
+  console.log("  menu     | m                     Show the menu");
+  console.log("  version  | v                     Show the version");
   console.log("-------------------------------");
   console.log("Author: Kraken");
   console.log("Version: " + version);
