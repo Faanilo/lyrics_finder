@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const readline = require("readline");
 const { program } = require("commander");
 const dotenv = require("dotenv");
@@ -7,7 +9,7 @@ const getSong = require("./library/getSong");
 dotenv.config();
 
 const apiKey ='SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E';
-const version = "1.0.4"; 
+const version = "1.0.5"; 
 
 program
   .command("lyrics <title> <artist>")
