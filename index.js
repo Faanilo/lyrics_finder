@@ -1,15 +1,13 @@
-#!/usr/bin/env node
-
 const readline = require("readline");
 const { program } = require("commander");
 const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 
-// Load environment variables from .env file
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
+const version = "1.0.1"; 
 
 program
   .command("lyrics <title> <artist>")
@@ -73,7 +71,8 @@ program
     console.log("|   1    | Search for specific lyrics |");
     console.log("|   2    | Search for a song         |");
     console.log("|   3    | About                     |");
-    console.log("|   4    | Exit                      |");
+    console.log("|   4    | Version                   |");
+    console.log("|   5    | Exit                      |");
     console.log("-------------------------------");
 
     rl.question("Enter your choice: ", (choice) => {
@@ -97,11 +96,15 @@ program
             "Lyrics-Finder is a command-line tool for searching song lyrics."
           );
           console.log("Author: Kraken");
-          console.log("Version: 1.0.0");
+          console.log("Version: " + version);
           console.log("-------------------------------");
           rl.close();
           break;
         case "4":
+          console.log("Version: " + version);
+          rl.close();
+          break;
+        case "5":
           console.log("Exiting...");
           rl.close();
           break;
@@ -113,6 +116,14 @@ program
     });
   });
 
+program
+  .command("version")
+  .alias("v")
+  .description("Show the version")
+  .action(() => {
+    console.log("Version: " + version);
+  });
+
 if (process.argv.length === 2) {
   console.log("Lyrics-Finder Command Line Tool");
   console.log("-------------------------------");
@@ -120,9 +131,10 @@ if (process.argv.length === 2) {
   console.log("  finderrr | l <title> <artist>   Get specified lyrics");
   console.log("  finderrr | s <title>              Search for a song");
   console.log("  finderrr | m                     Show the menu");
+  console.log("  finderrr | v                     Show the version");
   console.log("-------------------------------");
   console.log("Author: Kraken");
-  console.log("Version: 1.0.0");
+  console.log("Version: " + version);
   console.log("-------------------------------");
   console.log("-------------------------------");
 } else {
