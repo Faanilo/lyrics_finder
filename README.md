@@ -1,3 +1,7 @@
-# lyrics_finder 
+# Lyrics CLI
+A command line interface for [genius.com](https://genius.com/).
+<img width="800" src="./home.png">
 
-a command line interface for Genius Lyrics
+## INSTALLATION 
+
+Just RUN : npm i lyrics
