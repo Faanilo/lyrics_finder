@@ -6,7 +6,6 @@ const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 
-// Load environment variables from .env file
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
@@ -73,7 +72,8 @@ program
     console.table([
       { Option: "1", Description: "Search for specific lyrics" },
       { Option: "2", Description: "Search for a song" },
-      { Option: "3", Description: "Exit" },
+      { Option: "3", Description: "About" },
+      { Option: "4", Description: "Exit" },
     ]);
     console.log("-------------------------------");
 
@@ -94,6 +94,15 @@ program
           });
           break;
         case "3":
+          console.log("\nLyrics-Finder");
+          console.log("-------------------------------");
+          console.log("Lyrics-Finder is a command-line tool for searching song lyrics.");
+          console.log("Author: kraken");
+          console.log("Version: 1.0.0");
+          console.log("-------------------------------");
+          rl.close();
+          break;
+        case "4":
           console.log("Exiting...");
           rl.close();
           break;
