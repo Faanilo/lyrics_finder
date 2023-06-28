@@ -9,7 +9,7 @@ const getSong = require("./library/getSong");
 dotenv.config();
 
 const apiKey ='SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E';
-const version = "1.0.5"; 
+const version = "1.0.6"; 
 
 program
   .command("lyrics <title> <artist>")
