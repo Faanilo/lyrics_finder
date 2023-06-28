@@ -6,6 +6,7 @@ const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 
+// Load environment variables from .env file
 dotenv.config();
 
 const apiKey = process.env.API_KEY;
@@ -65,16 +66,14 @@ program
       input: process.stdin,
       output: process.stdout,
     });
-
-    console.log("\nWelcome to Lyrics-Finder");
-    console.log("-------------------------------");
     console.log("Menu:");
-    console.table([
-      { Option: "1", Description: "Search for specific lyrics" },
-      { Option: "2", Description: "Search for a song" },
-      { Option: "3", Description: "About" },
-      { Option: "4", Description: "Exit" },
-    ]);
+    console.log("-------------------------------");
+    console.log("| Option | Description             |");
+    console.log("|--------|-------------------------|");
+    console.log("|   1    | Search for specific lyrics |");
+    console.log("|   2    | Search for a song         |");
+    console.log("|   3    | About                     |");
+    console.log("|   4    | Exit                      |");
     console.log("-------------------------------");
 
     rl.question("Enter your choice: ", (choice) => {
@@ -94,10 +93,10 @@ program
           });
           break;
         case "3":
-          console.log("\nLyrics-Finder");
-          console.log("-------------------------------");
-          console.log("Lyrics-Finder is a command-line tool for searching song lyrics.");
-          console.log("Author: kraken");
+          console.log(
+            "Lyrics-Finder is a command-line tool for searching song lyrics."
+          );
+          console.log("Author: Kraken");
           console.log("Version: 1.0.0");
           console.log("-------------------------------");
           rl.close();
@@ -114,4 +113,18 @@ program
     });
   });
 
-program.parse(process.argv);
+if (process.argv.length === 2) {
+  console.log("Lyrics-Finder Command Line Tool");
+  console.log("-------------------------------");
+  console.log("Usage:");
+  console.log("  lyrics-finder lyrics | l <title> <artist>   Get specified lyrics");
+  console.log("  lyrics-finder song | s <title>              Search for a song");
+  console.log("  lyrics-finder menu | m                     Show the menu");
+  console.log("-------------------------------");
+  console.log("Author: Kraken");
+  console.log("Version: 1.0.0");
+  console.log("-------------------------------");
+  console.log("-------------------------------");
+} else {
+  program.parse(process.argv);
+}
