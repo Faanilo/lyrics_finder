@@ -2,7 +2,8 @@
 # FINDERRR
 
 command-line tools for https://genius.com/
-
+ 
+<img width="800" src="./home.gif">
 
 ## Installation
 
