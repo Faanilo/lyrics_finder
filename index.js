@@ -5,11 +5,39 @@ const { program } = require("commander");
 const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
-
+var figlet = require("figlet");
 dotenv.config();
 
-const apiKey ='SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E';
-const version = "1.0.6"; 
+const apiKey =
+  "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E";
+const version = "1.0.6";
+
+const colorReset = "\x1b[0m";
+const colorBright = "\x1b[1m";
+const colorFgCyan = "\x1b[36m";
+const colorFgYellow = "\x1b[33m";
+
+figlet("finderrr", function (err, data) {
+  if (err) {
+    console.log("Something went wrong...");
+    console.dir(err);
+    return;
+  }
+  if (process.argv.length === 2) {
+    console.log(colorFgCyan + data);
+    console.log(colorBright + "Usage:");
+    console.log("  lyrics   | l <title> <artist>   Get specified lyrics");
+    console.log("  song     | s <keyword>          Search for a song");
+    console.log("  menu     | m                    Show the menu");
+    console.log("  version  | v                    Show the version");
+    console.log("---------------------------");
+    console.log("Author: Kraken");
+    console.log("Version: " + version);
+    console.log(colorReset);
+  } else {
+    program.parse(process.argv);
+  }
+});
 
 program
   .command("lyrics <title> <artist>")
@@ -24,8 +52,9 @@ program
     };
 
     getLyrics(options).then((lyrics) => {
-      console.log("\nLyrics:");
+      console.log(colorFgYellow + "\nLyrics :");
       console.log(lyrics);
+      console.log(colorReset);
     });
   });
 
@@ -44,8 +73,9 @@ program
     getSong(options)
       .then((song) => {
         if (song) {
-          console.log("\nSong Lyrics:");
+          console.log(colorFgYellow + "\nSong Lyrics:");
           console.log(song.lyrics);
+          console.log(colorReset);
         } else {
           console.log("No song found.");
         }
@@ -66,16 +96,17 @@ program
       input: process.stdin,
       output: process.stdout,
     });
-    console.log("Menu:");
-    console.log("-------------------------------");
+    console.log(colorBright + "Menu:");
+    console.log("---------------------------");
     console.log("| Option | Description             |");
     console.log("|--------|-------------------------|");
     console.log("|   1    | Search for specific lyrics |");
     console.log("|   2    | Search for a song         |");
-    console.log("|   3    | About                     |");
-    console.log("|   4    | Version                   |");
-    console.log("|   5    | Exit                      |");
-    console.log("-------------------------------");
+    console.log("|    3   | About                     |");
+    console.log("|    4   | Version                   |");
+    console.log("|    5   | Exit                      |");
+    console.log("---------------------------");
+    console.log(colorReset);
 
     rl.question("Enter your choice: ", (choice) => {
       switch (choice) {
@@ -99,7 +130,7 @@ program
           );
           console.log("Author: Kraken");
           console.log("Version: " + version);
-          console.log("-------------------------------");
+          console.log("---------------------------");
           rl.close();
           break;
         case "4":
@@ -125,20 +156,3 @@ program
   .action(() => {
     console.log("Version: " + version);
   });
-
-if (process.argv.length === 2) {
-  console.log("Lyrics-Finder Command Line Tool");
-  console.log("-------------------------------");
-  console.log("Usage:");
-  console.log("  lyrics   | l <title> <artist>   Get specified lyrics");
-  console.log("  song     | s <title>              Search for a song");
-  console.log("  menu     | m                     Show the menu");
-  console.log("  version  | v                     Show the version");
-  console.log("-------------------------------");
-  console.log("Author: Kraken");
-  console.log("Version: " + version);
-  console.log("-------------------------------");
-  console.log("-------------------------------");
-} else {
-  program.parse(process.argv);
-}
