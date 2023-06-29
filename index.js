@@ -10,7 +10,7 @@ dotenv.config();
 
 const apiKey =
   "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E";
-const version = "1.0.6";
+const version = "1.0.7";
 
 const colorReset = "\x1b[0m";
 const colorBright = "\x1b[1m";
