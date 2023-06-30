@@ -2,11 +2,10 @@
 
 const readline = require("readline");
 const { program } = require("commander");
-const dotenv = require("dotenv");
 const getLyrics = require("./library/getLyrics");
 const getSong = require("./library/getSong");
 var figlet = require("figlet");
-dotenv.config();
+
 
 const apiKey =
   "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E";
