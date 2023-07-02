@@ -1,6 +1,6 @@
 {
   "name": "finderrr",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -24,6 +24,7 @@
     "axios": "^1.4.0",
     "cheerio-without-node-native": "^1.0.0-rc.2",
     "commander": "^11.0.0",
-    "figlet": "^1.6.0"
+    "figlet": "^1.6.0",
+    "parse5": "^7.1.2"
   }
 }
