@@ -9,7 +9,7 @@ var figlet = require("figlet");
 
 const apiKey =
   "SZ2FBOqVDvzzk7OAVIzD06a9nDPlbEV6qsVIMzzqFUHS9klnUBzsK3dXUvoMTV2E";
-const version = "1.0.8";
+const version = "1.0.9";
 
 const colorReset = "\x1b[0m";
 const colorBright = "\x1b[1m";
